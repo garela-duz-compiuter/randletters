@@ -12,21 +12,21 @@ const alphabets = [
 
 
 /** @param {string} text to convert to random letters */
-function rand_letters(text) {
+const rand_letters = text => {
   let res = ''
 
   for (const [i, alphabet] of alphabets.entries())
     if (!Array.isArray(alphabet)) alphabets[i] = [alphabet]
 
   /** @function separate unicode letters of a list */
-  const separate_letters = (alphabet) => {
+  const separate_letters = alphabet => {
     const res = []
     for (const letter of alphabet) res.push(letter)
     return res
   }
 
   /** @function which group does the char fits in */
-  const test_group = (char) => {
+  const test_group = char => {
     const ranges = [
       [97, 122], // 0: lower case letters
       [65, 90],  // 1: upper case letters
