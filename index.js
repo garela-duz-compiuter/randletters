@@ -10,24 +10,31 @@ const alphabets = [
   'ǟɮƈɖɛʄɢɦɨʝӄʟʍռօքզʀֆȶʊʋաӼʏʐ'
 ]
 
-const content = 'garela duz compiuter'
-let res = ''
 
-for (const letter of content) {
-  if (letter == ' ') {
-    res += ' '
-    continue
+/** @function rand_letters
+ * @param {string} text to convert to random letters
+ */
+function rand_letters(text) {
+  let res = ''
+
+  for (const letter of text) {
+    if (letter == ' ') {
+      res += ' '
+      continue
+    }
+
+    const letter_ascii = letter.charCodeAt(0) - 97
+    const alphabet = alphabets[Math.floor(Math.random() * alphabets.length)]
+    let letters = []
+
+    for (const letter of alphabet) {
+      letters.push(letter)
+    }
+
+    res += letters[letter_ascii]
   }
 
-  const letter_ascii = letter.charCodeAt(0) - 97
-  const alphabet = alphabets[Math.floor(Math.random() * alphabets.length)]
-  let letters = []
-
-  for (const letter of alphabet) {
-    letters.push(letter)
-  }
-
-  res += letters[letter_ascii]
+  return res
 }
 
-console.log(res)
+console.log(rand_letters('garela duz compiuter'))
